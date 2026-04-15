@@ -73,7 +73,9 @@ a:hover{
 }
 
 .background-image{
-	width: 1080px;
+	width: 100%;
+	max-width: 1080px; /* Keeps it from getting too large on desktop */
+    margin: 0 auto;
 }
 
 .background-image img{
@@ -97,6 +99,8 @@ a:hover{
 .menu-cards{
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap; /* Allows cards to move to the next line on mobile */
+	justify-content: center;
 	margin: 10px;
 	column-gap: 20px;
 	row-gap: 30px;
@@ -264,4 +268,20 @@ a:hover{
 	border: none;
 	border-radius: 10px;
 	background-color: rgb(181, 95, 9);
+}
+
+.cart, .footer, .copyright {
+    width: 100%;
+    min-width: 100%; /* Forces background to stay consistent */
+}
+
+@media (max-width: 768px) {
+    .cart-details {
+        flex-direction: column; /* Stacks image on top of the form */
+    }
+
+    .cart-image, .order-form {
+        padding: 20px; /* Reduces the large 100px padding for mobile */
+        width: 100%;
+    }
 }
